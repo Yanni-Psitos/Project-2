@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<intent-filter xmlns:android="http://schemas.android.com/apk/res/android">
+    <action android:name="android.intent.action.SEARCH" />
+</intent-filter>
