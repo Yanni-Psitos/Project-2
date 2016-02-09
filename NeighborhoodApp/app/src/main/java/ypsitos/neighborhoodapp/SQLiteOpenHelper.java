@@ -27,7 +27,7 @@ public class SQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
     public static final String COL_ADDITIONAL_DETAIL = "ADDITIONAL_DETAILS"; //Summary/additional information about hero
 
 
-    public static final String[] HERO_COLUMNS = {COL_ID, COL_HERO_NAME, COL_REAL_NAME, COL_POWERS};
+    public static final String[] HERO_COLUMNS = {COL_ID, COL_HERO_NAME, COL_REAL_NAME, COL_POWERS,COL_ADDITIONAL_DETAIL};
 
     private static final String CREATE_HERO_LIST_TABLE =
             "CREATE TABLE " + TABLE_NAME +
@@ -47,10 +47,10 @@ public class SQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String deadpoolRow = "INSERT INTO " + TABLE_NAME + " ("
                 + COL_ID+", " + COL_HERO_NAME + ", " + COL_REAL_NAME + ", "
-                + COL_POWERS + ", " + COL_ADDITIONAL_DETAIL +") Values (0,'Deadpool', 'Wade Wilson', 'Accelerated Healing Factor, Trained Assassin, Breaks the 4th Wall, Chimichangas', 'Unlike Wolverine’s natural healing factor, Deadpool’s is mentally driven to a partial extent. Due to the presence of this superhuman healing ability, many of Deadpool’s natural physical attributes have been enhanced. Deadpool’s musculature generates considerably less fatigue toxins than the muscles of an ordinary human being, granting him superhuman levels of stamina in all physical activities. His natural strength, agility and reflexes have been enhanced to levels that are beyond the natural limits of the human body. Deadpool’s agility and reaction time are superior to those of even the finest human athlete.')";
+                + COL_POWERS + ", " + COL_ADDITIONAL_DETAIL +") Values (null,'Deadpool', 'Wade Wilson', 'Accelerated Healing Factor, Trained Assassin, Breaks the 4th Wall, Chimichangas', 'Unlike Wolverine’s natural healing factor, Deadpool’s is mentally driven to a partial extent. Due to the presence of this superhuman healing ability, many of Deadpool’s natural physical attributes have been enhanced. Deadpool’s musculature generates considerably less fatigue toxins than the muscles of an ordinary human being, granting him superhuman levels of stamina in all physical activities. His natural strength, agility and reflexes have been enhanced to levels that are beyond the natural limits of the human body. Deadpool’s agility and reaction time are superior to those of even the finest human athlete.')";
         String wolverineRow = "INSERT INTO " + TABLE_NAME + " ("
                 + COL_ID+ ", "+COL_HERO_NAME + ", " + COL_REAL_NAME + ", "
-                + COL_POWERS + ", " + COL_ADDITIONAL_DETAIL +") Values (1,'Wolverine','Logan Howlett','Accelerated Healing Factor, Retractable Claws, Adamantium Skeleton','Due to his extensive training as a soldier, a C.I.A. operative, a samurai, a spy, and a member of the X-Men, Wolverine is an exceptional hand-to-hand combatant, having mastered virtually every fighting style on Earth. He is also a trained expert in multiple types of weapons, vehicles, computer systems, explosives, and assassination techniques.')";
+                + COL_POWERS + ", " + COL_ADDITIONAL_DETAIL +") Values (null,'Wolverine','Logan Howlett','Accelerated Healing Factor, Retractable Claws, Adamantium Skeleton','Due to his extensive training as a soldier, a C.I.A. operative, a samurai, a spy, and a member of the X-Men, Wolverine is an exceptional hand-to-hand combatant, having mastered virtually every fighting style on Earth. He is also a trained expert in multiple types of weapons, vehicles, computer systems, explosives, and assassination techniques.')";
         db.execSQL(CREATE_HERO_LIST_TABLE);
         db.execSQL(deadpoolRow);
         db.execSQL(wolverineRow);

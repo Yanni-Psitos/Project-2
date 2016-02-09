@@ -44,20 +44,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    protected void onNewIntent(Intent intent) {
-        handleIntent(intent);
-    }
-
-    private void handleIntent(Intent intent) {
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            Cursor cursor = mSqlHelper.searchHeroListForHeroName(query);
-            mCursorAdapter.changeCursor(cursor);
-            mCursorAdapter.notifyDataSetChanged();
-        }
-    }
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -73,6 +59,22 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            Cursor cursor = mSqlHelper.searchHeroListForHeroName(query);
+            mCursorAdapter.changeCursor(cursor);
+            mCursorAdapter.notifyDataSetChanged();
+        }
+    }
+
+
+
 
 
 }
