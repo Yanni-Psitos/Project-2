@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        handleIntent(getIntent());
         mSqlHelper = new SQLiteOpenHelper(MainActivity.this);
         final Cursor cursor = mSqlHelper.getHeroList();
         mCursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, new String[]{SQLiteOpenHelper.COL_HERO_NAME}, new int[]{android.R.id.text1}, 0);
@@ -59,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+
     @Override
     protected void onNewIntent(Intent intent) {
         handleIntent(intent);
@@ -66,15 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
+            String query = getIntent().getStringExtra(SearchManager.QUERY);
             Cursor cursor = mSqlHelper.searchHeroListForHeroName(query);
             mCursorAdapter.changeCursor(cursor);
-            mCursorAdapter.notifyDataSetChanged();
         }
     }
-
-
-
-
-
 }

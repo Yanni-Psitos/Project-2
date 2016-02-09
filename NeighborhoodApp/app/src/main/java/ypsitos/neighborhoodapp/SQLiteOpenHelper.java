@@ -84,7 +84,7 @@ public class SQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME, // a. table
-                null, // b. column names
+                HERO_COLUMNS, // b. column names
                 COL_HERO_NAME + " LIKE ?", // c. selections
                 new String[]{"%" + query + "%"}, // d. selections args
                 null, // e. group by
