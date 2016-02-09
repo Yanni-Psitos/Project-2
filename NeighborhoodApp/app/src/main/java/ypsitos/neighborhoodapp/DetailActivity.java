@@ -15,24 +15,23 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        mHelper = new SQLiteOpenHelper(this);
+
         mHeroNameTv = (TextView)findViewById(R.id.heroNameTextView);
         mRealNameTv = (TextView)findViewById(R.id.realNameTextView);
         mPowersTv = (TextView)findViewById(R.id.powersTextView);
         mAdditionalDetailsTv = (TextView)findViewById(R.id.additionalDetailsTextView);
 
-        mHelper = new SQLiteOpenHelper(this);
-
 
         int dataId = getIntent().getIntExtra("id",-1);
 
         if(dataId>=0){
-            mCursor = mHelper.sea(dataId);
+            mCursor = mHelper.searchHeroListById(dataId);
             mCursor.moveToFirst();
-            mItemName.setText(mCursor.getString(mCursor.getColumnIndex(ShoppingSQLiteOpenHelper.COL_ITEM_NAME)));
-            mDescription.setText(mCursor.getString(mCursor.getColumnIndex(ShoppingSQLiteOpenHelper.COL_ITEM_DESCRIPTION)));
-            mPrice.setText(mCursor.getString(mCursor.getColumnIndex(ShoppingSQLiteOpenHelper.COL_ITEM_PRICE)));
-            mType.setText(mCursor.getString(mCursor.getColumnIndex(ShoppingSQLiteOpenHelper.COL_ITEM_TYPE)));
-            mExtra.setText(mCursor.getString(mCursor.getColumnIndex(ShoppingSQLiteOpenHelper.COL_ITEM_EXTRADETAIL)));
+            mHeroNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
+            mRealNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_REAL_NAME)));
+            mPowersTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_POWERS)));
+            mAdditionalDetailsTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_ADDITIONAL_DETAIL)));
 
         }
 
