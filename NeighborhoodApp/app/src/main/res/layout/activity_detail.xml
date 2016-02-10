@@ -9,7 +9,7 @@
     android:fillViewport="true"
     android:orientation="vertical">
 
-<LinearLayout
+<RelativeLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,7 +17,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ypsitos.neighborhoodapp.DetailActivity">
+    tools:context="ypsitos.neighborhoodapp.DetailActivity"
+    android:background="#2f2e2e">
 
     <ImageView
         android:layout_width="fill_parent"
@@ -33,44 +34,89 @@
     android:text="p1"
     android:layout_gravity="center_horizontal"
     android:textSize="40sp"
-    android:textColor="#ff0000"
-    android:textStyle="bold" />
+    android:textColor="#7f0000"
+    android:textStyle="bold"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
 
     <TextView
     android:id = "@+id/realNameTextView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="p2"
-    android:layout_below="@+id/heroNameTextView"
-    android:layout_alignLeft="@+id/heroNameTextView"
-    android:layout_alignStart="@+id/heroNameTextView"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="20dp"
-    android:textSize="20sp"
-    android:layout_marginBottom="10dp" />
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:maxWidth="275dp"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/heroNameTextView"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id = "@+id/powersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="p3"
-        android:layout_below="@+id/realNameTextView"
-        android:layout_alignLeft="@+id/realNameTextView"
-        android:layout_alignStart="@+id/realNameTextView"
         android:layout_gravity="center_horizontal"
-        android:textSize="20sp" />
+        android:maxWidth="400dp"
+        android:paddingTop="20dp"
+        android:layout_below="@+id/realNameTextView"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
 
     <TextView
         android:id = "@+id/additionalDetailsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="p4"
-        android:layout_below="@+id/powersTextView"
-        android:layout_alignLeft="@+id/powersTextView"
-        android:layout_alignStart="@+id/powersTextView"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp" />
+        android:maxWidth="200dp"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/imageView2"
+        android:layout_below="@+id/heroNameTextView"
+        android:layout_centerHorizontal="true"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AKA  "
+        android:id="@+id/textView"
+        android:paddingTop="15dp"
+        android:textColor="#999999"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POWERS"
+        android:id="@+id/textView2"
+        android:paddingTop="20dp"
+        android:textColor="#999999"
+        android:paddingRight="5dp"
+        android:layout_below="@+id/realNameTextView"
+        android:layout_toLeftOf="@+id/realNameTextView"
+        android:layout_toStartOf="@+id/realNameTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ABOUT"
+        android:id="@+id/textView3"
+        android:textColor="#999999"
+        android:paddingRight="5dp"
+        android:layout_marginTop="69dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+</RelativeLayout>
 
 </ScrollView>

@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 searchManager.getSearchableInfo(getComponentName()));
 
         return true;
+
+
+
     }
 
     @Override
@@ -72,4 +75,13 @@ public class MainActivity extends AppCompatActivity {
             mCursorAdapter.changeCursor(mCursor);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        mCursor = mSqlHelper.getHeroList();
+        mCursorAdapter.changeCursor(mCursor);
+    }
+
+
 }

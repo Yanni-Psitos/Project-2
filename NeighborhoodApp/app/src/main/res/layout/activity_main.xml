@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ypsitos.neighborhoodapp.MainActivity">
+    tools:context="ypsitos.neighborhoodapp.MainActivity"
+    android:background="#2f2e2e">
 
    <!--<TextView-->
         <!--android:id = "@+id/nycGuideTextView"-->
@@ -17,11 +18,19 @@
         <!--android:text="New York City Guide"-->
         <!--android:textColor="#006699"-->
         <!--android:textSize="40sp"/>-->
+    <ImageView
+        android:id="@+id/imageViewBackground"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src = "@drawable/wolverinebackground"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitXY" />
     <ListView
         android:id = "@+id/heroListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></ListView>
+        android:layout_alignParentStart="true"
+       ></ListView>
 </RelativeLayout>
