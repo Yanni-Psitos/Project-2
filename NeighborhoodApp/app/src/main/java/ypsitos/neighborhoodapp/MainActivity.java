@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         mCursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, mCursor, new String[]{SQLiteOpenHelper.COL_HERO_NAME}, new int[]{android.R.id.text1}, 0);
 
 
+
         mHeroList = (ListView) findViewById(R.id.heroListView);
         mHeroList.setAdapter(mCursorAdapter);
 
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
-
+        searchView.setQueryHint("Hero, Name, or Power");
         return true;
 
 

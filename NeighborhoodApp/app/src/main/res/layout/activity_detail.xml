@@ -25,7 +25,8 @@
         android:layout_height="150dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:src="#000000" />
+        android:src="#000000"
+        android:scaleType="fitXY" />
 
     <TextView
     android:id = "@+id/heroNameTextView"

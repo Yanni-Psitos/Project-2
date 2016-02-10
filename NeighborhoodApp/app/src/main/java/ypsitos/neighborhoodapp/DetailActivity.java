@@ -1,6 +1,7 @@
 package ypsitos.neighborhoodapp;
 
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -11,7 +12,7 @@ public class DetailActivity extends AppCompatActivity {
     ImageView mImageView;
     Cursor mCursor;
     SQLiteOpenHelper mHelper;
-
+    Drawable mDeadpoolPic,mWolverinePic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { //When my activity is created....
@@ -25,6 +26,8 @@ public class DetailActivity extends AppCompatActivity {
         mPowersTv = (TextView)findViewById(R.id.powersTextView);
         mAdditionalDetailsTv = (TextView)findViewById(R.id.additionalDetailsTextView);
         mImageView = (ImageView)findViewById(R.id.imageView);
+        mDeadpoolPic = getResources().getDrawable(R.drawable.deadpool);
+        mWolverinePic = getResources().getDrawable(R.drawable.wolverineactual);
 
 
         int dataId = getIntent().getIntExtra("id",-1); //Gets the intent passed by the searchview and gets the extra passed, with default value -1, assigned to an int dataId.
@@ -36,7 +39,11 @@ public class DetailActivity extends AppCompatActivity {
             mRealNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_REAL_NAME)));
             mPowersTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_POWERS)));
             mAdditionalDetailsTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_ADDITIONAL_DETAIL)));
-
+            if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")){
+                mImageView.setImageDrawable(mDeadpoolPic);
+            }else if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Wolverine")){
+                mImageView.setImageDrawable(mWolverinePic);
+            }
         }
 
     }
