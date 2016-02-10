@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ListView mHeroList;
     CursorAdapter mCursorAdapter;
     SQLiteOpenHelper mSqlHelper;
+    Cursor mCursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mSqlHelper = new SQLiteOpenHelper(MainActivity.this);
-        final Cursor cursor = mSqlHelper.getHeroList();
-        mCursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, new String[]{SQLiteOpenHelper.COL_HERO_NAME}, new int[]{android.R.id.text1}, 0);
+        mCursor = mSqlHelper.getHeroList();
+        mCursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, mCursor, new String[]{SQLiteOpenHelper.COL_HERO_NAME}, new int[]{android.R.id.text1}, 0);
 
 
         mHeroList = (ListView) findViewById(R.id.heroListView);
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent toDetails = new Intent(MainActivity.this, DetailActivity.class);
-                cursor.moveToPosition(position);
-                toDetails.putExtra("id", cursor.getInt(cursor.getColumnIndex(mSqlHelper.COL_ID)));
+                mCursor.moveToPosition(position);
+                toDetails.putExtra("id", mCursor.getInt(mCursor.getColumnIndex(mSqlHelper.COL_ID)));
                 startActivity(toDetails);
             }
         });
@@ -66,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = getIntent().getStringExtra(SearchManager.QUERY);
-            Cursor cursor = mSqlHelper.searchHeroListForHeroName(query);
-            mCursorAdapter.changeCursor(cursor);
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            mCursor = mSqlHelper.searchHeroList(query);
+            mCursorAdapter.changeCursor(mCursor);
         }
     }
 }

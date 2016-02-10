@@ -6,26 +6,26 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
-    TextView mPowersTv,mAdditionalDetailsTv,mHeroNameTv,mRealNameTv;
+    TextView mPowersTv,mAdditionalDetailsTv,mHeroNameTv,mRealNameTv; //Member variables for all views, cursor, and helper.
     Cursor mCursor;
     SQLiteOpenHelper mHelper;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //When my activity is created....
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        mHelper = new SQLiteOpenHelper(this);
+        mHelper = new SQLiteOpenHelper(this); //mHelper becomes an instance of my helper class.
 
-        mHeroNameTv = (TextView)findViewById(R.id.heroNameTextView);
+        mHeroNameTv = (TextView)findViewById(R.id.heroNameTextView); //Instantiating/referencing my views.
         mRealNameTv = (TextView)findViewById(R.id.realNameTextView);
         mPowersTv = (TextView)findViewById(R.id.powersTextView);
         mAdditionalDetailsTv = (TextView)findViewById(R.id.additionalDetailsTextView);
 
 
-        int dataId = getIntent().getIntExtra("id",-1);
+        int dataId = getIntent().getIntExtra("id",-1); //Gets the intent passed by the searchview and gets the extra passed, with default value -1, assigned to an int dataId.
 
-        if(dataId>=0){
+        if(dataId>=0){ //If the data passed (id) is greater than or equal to 0...
             mCursor = mHelper.searchHeroListById(dataId);
             mCursor.moveToFirst();
             mHeroNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
