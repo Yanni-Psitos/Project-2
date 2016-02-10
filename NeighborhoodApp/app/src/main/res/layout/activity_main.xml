@@ -24,5 +24,18 @@
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></ListView>
+        android:layout_alignParentStart="true"
+        android:divider="#F3F315"
+        android:dividerHeight="4px"
+        ></ListView>
+
+    <ListView
+        android:id="@+id/favoriteListView"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:divider="#F3F315"
+        android:dividerHeight="4px"
+        android:layout_alignTop="@+id/heroListView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
