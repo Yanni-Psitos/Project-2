@@ -16,7 +16,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ypsitos.neighborhoodapp.TeamActivity"
-    android:background="#2f2e2e"
+    android:background="@drawable/blackbacking1"
     >
 
     <ImageView
@@ -24,42 +24,48 @@
         android:layout_height="150dp"
         android:id="@+id/imageView1"
         android:layout_gravity="center_horizontal"
-        android:src="#000000"
+        android:src="@drawable/redbacking3"
         android:scaleType="fitXY"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="5dp" />
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="150dp"
         android:id="@+id/imageView2"
         android:layout_gravity="center_horizontal"
-        android:src="#999999"
+        android:src="@drawable/goldbacking1"
         android:scaleType="fitXY"
         android:layout_below="@+id/imageView1"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="150dp"
         android:id="@+id/imageView3"
         android:layout_gravity="center_horizontal"
-        android:src="#000000"
+        android:src="@drawable/redbacking3"
         android:scaleType="fitXY"
         android:layout_below="@+id/imageView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="150dp"
         android:id="@+id/imageView4"
         android:layout_gravity="center_horizontal"
-        android:src="#999999"
+        android:src="@drawable/goldbacking1"
         android:scaleType="fitXY"
         android:layout_below="@+id/imageView3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,7 +74,10 @@
         android:text="ADD A HERO!"
         android:id="@+id/textView1"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#7f0000"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -78,7 +87,9 @@
         android:id="@+id/textView2"
         android:layout_alignTop="@+id/imageView2"
         android:layout_alignLeft="@+id/textView1"
-        android:layout_alignStart="@+id/textView1" />
+        android:layout_alignStart="@+id/textView1"
+        android:textColor="#7f0000"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -86,8 +97,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="ADD A HERO!"
         android:id="@+id/textView3"
-        android:layout_below="@+id/imageView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#7f0000"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -95,8 +109,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="ADD A HERO!"
         android:id="@+id/textView4"
-        android:layout_below="@+id/imageView3"
-        android:layout_centerHorizontal="true" />
+        android:textColor="#7f0000"
+        android:layout_alignTop="@+id/imageView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold|italic" />
     <Button
         android:id = "@+id/backButton"
         android:layout_width="wrap_content"
@@ -104,8 +121,10 @@
         android:layout_below="@+id/imageView4"
         android:layout_centerHorizontal="true"
         android:text="Back"
-        android:textColor="#F3F315"
-        android:backgroundTint="#FF80CBC4" />
+        android:textColor="#7f0000"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#000000"
+        android:singleLine="false" />
 
 </RelativeLayout>
 </ScrollView>
