@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     CursorAdapter mCursorAdapter;
     SQLiteOpenHelper mSqlHelper;
     Cursor mCursor;
+    FloatingActionButton mToFavoritesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
                 mCursor.moveToPosition(position);
                 toDetails.putExtra("id", mCursor.getInt(mCursor.getColumnIndex(mSqlHelper.COL_ID)));
                 startActivity(toDetails);
+            }
+        });
+
+
+        mToFavoritesButton = (FloatingActionButton)findViewById(R.id.fab);
+        mToFavoritesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toFavoritesActivity = new Intent(MainActivity.this,TeamActivity.class);
+                startActivity(toFavoritesActivity);
             }
         });
     }

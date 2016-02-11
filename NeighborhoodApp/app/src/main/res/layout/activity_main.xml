@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,6 +29,17 @@
         android:divider="#F3F315"
         android:dividerHeight="4px"
         ></ListView>
-
+    <android.support.design.widget.FloatingActionButton   xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fab"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_supervisor_account_black_48dp"
+        android:layout_gravity="right|bottom"
+        app:borderWidth="0dp"
+        app:rippleColor="#ffffff"
+        app:backgroundTint="#F3F315"
+        android:layout_alignTop="@+id/heroListView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

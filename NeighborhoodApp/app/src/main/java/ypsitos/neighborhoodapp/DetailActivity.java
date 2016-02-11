@@ -37,6 +37,21 @@ public class DetailActivity extends AppCompatActivity {
         mDeadpoolPic = getResources().getDrawable(R.drawable.deadpool);
         mWolverinePic = getResources().getDrawable(R.drawable.wolverineactual);
 
+
+        if(dataId>=0){ //If the data passed (id) is greater than or equal to 0...
+            mCursor = mHelper.searchHeroListById(dataId);
+            mCursor.moveToFirst();
+            mHeroNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
+            mRealNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_REAL_NAME)));
+            mPowersTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_POWERS)));
+            mAdditionalDetailsTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_ADDITIONAL_DETAIL)));
+            if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")){
+                mImageView.setImageDrawable(mDeadpoolPic);
+            }else if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Wolverine")){
+                mImageView.setImageDrawable(mWolverinePic);
+            }
+        }
+
         mFavoriteButton = (FloatingActionButton)findViewById(R.id.fab);
         mFavoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,21 +88,6 @@ public class DetailActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-        if(dataId>=0){ //If the data passed (id) is greater than or equal to 0...
-            mCursor = mHelper.searchHeroListById(dataId);
-            mCursor.moveToFirst();
-            mHeroNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
-            mRealNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_REAL_NAME)));
-            mPowersTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_POWERS)));
-            mAdditionalDetailsTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_ADDITIONAL_DETAIL)));
-            if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")){
-                mImageView.setImageDrawable(mDeadpoolPic);
-            }else if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Wolverine")){
-                mImageView.setImageDrawable(mWolverinePic);
-            }
-        }
 
     }
 }
