@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     android:orientation="vertical">
 
@@ -19,6 +17,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ypsitos.neighborhoodapp.DetailActivity"
     android:background="#2f2e2e">
+    <android.support.design.widget.FloatingActionButton   xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fab"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/a1455227645_add_user"
+        android:layout_gravity="right|bottom"
+        app:borderWidth="0dp"
+        app:rippleColor="#ffffff"
+        app:backgroundTint="#7f0000"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="fill_parent"
@@ -26,7 +36,10 @@
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:src="#000000"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
     android:id = "@+id/heroNameTextView"
