@@ -184,11 +184,11 @@ public class TeamActivity extends AppCompatActivity {
                 mImageView2.setImageDrawable(mBatmanPic);
             } else if (mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Hulk")) {
                 mImageView2.setImageDrawable(mHulkPic);
-            } else if (mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kickass")) {
+            } else if (mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kick-Ass")) {
                 mImageView2.setImageDrawable(mKickassPic);
             } else if (mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Thor")) {
                 mImageView2.setImageDrawable(mThorPic);
-            } else if (mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Antman")) {
+            } else if (mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Ant-Man")) {
                 mImageView2.setImageDrawable(mAntmanPic);
             } else if (mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Goku")) {
                 mImageView2.setImageDrawable(mGokuPic);
@@ -210,11 +210,11 @@ public class TeamActivity extends AppCompatActivity {
                 mImageView3.setImageDrawable(mBatmanPic);
             } else if (mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Hulk")) {
                 mImageView3.setImageDrawable(mHulkPic);
-            } else if (mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kickass")) {
+            } else if (mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kick-Ass")) {
                 mImageView3.setImageDrawable(mKickassPic);
             } else if (mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Thor")) {
                 mImageView3.setImageDrawable(mThorPic);
-            } else if (mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Antman")) {
+            } else if (mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Ant-Man")) {
                 mImageView3.setImageDrawable(mAntmanPic);
             } else if (mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Goku")) {
                 mImageView3.setImageDrawable(mGokuPic);
@@ -236,11 +236,11 @@ public class TeamActivity extends AppCompatActivity {
                 mImageView4.setImageDrawable(mBatmanPic);
             } else if (mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Hulk")) {
                 mImageView4.setImageDrawable(mHulkPic);
-            } else if (mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kickass")) {
+            } else if (mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kick-Ass")) {
                 mImageView4.setImageDrawable(mKickassPic);
             } else if (mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Thor")) {
                 mImageView4.setImageDrawable(mThorPic);
-            } else if (mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Antman")) {
+            } else if (mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Ant-Man")) {
                 mImageView4.setImageDrawable(mAntmanPic);
             } else if (mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Goku")) {
                 mImageView4.setImageDrawable(mGokuPic);

@@ -88,7 +88,11 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
             public void onClick(View v) {
                 if (mSharedPreferences.getInt("id1", -1) == dataId || mSharedPreferences.getInt("id2", -1) == dataId || mSharedPreferences.getInt("id3", -1) == dataId || mSharedPreferences.getInt("id4", -1) == dataId) {
                     Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is already in your team!", Toast.LENGTH_SHORT).show();
-                } else if (mSharedPreferences.getInt("id1", -1) != dataId && mSharedPreferences.getInt("id1",-1) == -1) {
+                }
+                else if (mSharedPreferences.getInt("id1",-1) != -1 && mSharedPreferences.getInt("id2",-1) != -1 && mSharedPreferences.getInt("id3",-1) != -1 && mSharedPreferences.getInt("id4",-1) != -1){
+                    Toast.makeText(DetailActivity.this, "Your team is full!", Toast.LENGTH_SHORT).show();
+                }
+                else if (mSharedPreferences.getInt("id1", -1) != dataId && mSharedPreferences.getInt("id1",-1) == -1) {
                     Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is placed on your team!", Toast.LENGTH_SHORT).show();
 
                     mEditor.putInt("id1", dataId);
