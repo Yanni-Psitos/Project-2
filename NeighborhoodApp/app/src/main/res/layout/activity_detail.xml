@@ -65,7 +65,7 @@
     android:textStyle="bold"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:paddingRight="20dp" />
+        android:paddingRight="30dp" />
 
     <TextView
     android:id = "@+id/realNameTextView"

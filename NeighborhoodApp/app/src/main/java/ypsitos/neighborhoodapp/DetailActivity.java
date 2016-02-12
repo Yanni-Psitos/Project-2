@@ -87,33 +87,33 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
             @Override
             public void onClick(View v) {
                 if (mSharedPreferences.getInt("id1", -1) == dataId || mSharedPreferences.getInt("id2", -1) == dataId || mSharedPreferences.getInt("id3", -1) == dataId || mSharedPreferences.getInt("id4", -1) == dataId) {
-                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is already in your team!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is already on your team!", Toast.LENGTH_SHORT).show();
                 }
                 else if (mSharedPreferences.getInt("id1",-1) != -1 && mSharedPreferences.getInt("id2",-1) != -1 && mSharedPreferences.getInt("id3",-1) != -1 && mSharedPreferences.getInt("id4",-1) != -1){
                     Toast.makeText(DetailActivity.this, "Your team is full!", Toast.LENGTH_SHORT).show();
                 }
                 else if (mSharedPreferences.getInt("id1", -1) != dataId && mSharedPreferences.getInt("id1",-1) == -1) {
-                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is placed on your team!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " joins your team!", Toast.LENGTH_SHORT).show();
 
                     mEditor.putInt("id1", dataId);
                     mEditor.commit();
 
                 } else if (mSharedPreferences.getInt("id2", -1) != dataId && mSharedPreferences.getInt("id2",-1) == -1) {
-                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is placed on your team!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " joins your team!", Toast.LENGTH_SHORT).show();
 
 
                     mEditor.putInt("id2", dataId);
                     mEditor.commit();
 
                 } else if (mSharedPreferences.getInt("id3", -1) != dataId && mSharedPreferences.getInt("id3",-1) == -1) {
-                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is placed on your team!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " joins your team!", Toast.LENGTH_SHORT).show();
 
 
                     mEditor.putInt("id3", dataId);
                     mEditor.commit();
 
                 } else if (mSharedPreferences.getInt("id4", -1) != dataId && mSharedPreferences.getInt("id4",-1) == -1) {
-                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is placed on your team!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " joins your team!", Toast.LENGTH_SHORT).show();
 
 
                     mEditor.putInt("id4", dataId);
@@ -144,7 +144,7 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
                     mEditor.remove("id4");
                     mEditor.commit();
                 }else{
-                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is not in your team yet!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is not on your team yet!", Toast.LENGTH_LONG).show();
 
                 }
             }
