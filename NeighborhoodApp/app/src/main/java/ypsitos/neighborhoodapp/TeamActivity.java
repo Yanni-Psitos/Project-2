@@ -107,38 +107,6 @@ public class TeamActivity extends AppCompatActivity {
             }
         });
 
-        mImageView1.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                mEditor.remove("id1");
-                return false;
-            }
-        });
-
-        mImageView2.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                mEditor.remove("id2");
-                return false;
-            }
-        });
-
-        mImageView3.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                mEditor.remove("id3");
-                return false;
-            }
-        });
-
-        mImageView4.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                mEditor.remove("id4");
-                return false;
-            }
-        });
-
 
         if (mSharedPreferences.equals(null)
                 ) {
