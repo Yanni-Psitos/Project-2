@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class TeamActivity extends AppCompatActivity {
-    ImageView mImageView1, mImageView2, mImageView3, mImageView4;
+    ImageView mImageView1, mImageView2, mImageView3, mImageView4; //Member variables for all views, drawables, cursor, and helper.
     TextView mTextView1, mTextView2, mTextView3, mTextView4;
     Cursor mCursor1, mCursor2, mCursor3, mCursor4;
     SQLiteOpenHelper mHelper;
@@ -28,20 +28,20 @@ public class TeamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
         mHelper = new SQLiteOpenHelper(this);
-        mSharedPreferences = this.getSharedPreferences("prefs", MODE_PRIVATE);
+        mSharedPreferences = this.getSharedPreferences("prefs", MODE_PRIVATE); //Opens the instance of the saved data in sharedPref.
         mEditor = mSharedPreferences.edit();
 
-        final int id1 = mSharedPreferences.getInt("id1", -1);
+        final int id1 = mSharedPreferences.getInt("id1", -1); //Gives int variables the values grabbed from sharedPref, which are the "id" values.
         final int id2 = mSharedPreferences.getInt("id2", -1);
         final int id3 = mSharedPreferences.getInt("id3", -1);
         final int id4 = mSharedPreferences.getInt("id4", -1);
 
-        mCursor1 = mHelper.searchHeroListById(id1);
+        mCursor1 = mHelper.searchHeroListById(id1); //Individual cursors instantiated for each separate id value.
         mCursor2 = mHelper.searchHeroListById(id2);
         mCursor3 = mHelper.searchHeroListById(id3);
         mCursor4 = mHelper.searchHeroListById(id4);
 
-        mImageView1 = (ImageView) findViewById(R.id.imageView1);
+        mImageView1 = (ImageView) findViewById(R.id.imageView1); //Referenced the views and Drawables in order to allow them to show appropriate data to the activity.
         mImageView2 = (ImageView) findViewById(R.id.imageView2);
         mImageView3 = (ImageView) findViewById(R.id.imageView3);
         mImageView4 = (ImageView) findViewById(R.id.imageView4);
@@ -65,7 +65,7 @@ public class TeamActivity extends AppCompatActivity {
         backButton = (Button) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //When clicked... Sent to MainActivity.
                 Intent toHome = new Intent(TeamActivity.this, MainActivity.class);
                 startActivity(toHome);
             }
@@ -73,7 +73,7 @@ public class TeamActivity extends AppCompatActivity {
 
         mImageView1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //When clicked... Sent to MainActivity.
                 Intent toDetail = new Intent(TeamActivity.this, MainActivity.class);
                 toDetail.putExtra("id", id1);
                 startActivity(toDetail);
@@ -82,7 +82,7 @@ public class TeamActivity extends AppCompatActivity {
 
         mImageView2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //When clicked... Sent to MainActivity.
                 Intent toDetail = new Intent(TeamActivity.this, MainActivity.class);
                 toDetail.putExtra("id", id2);
                 startActivity(toDetail);
@@ -91,7 +91,7 @@ public class TeamActivity extends AppCompatActivity {
 
         mImageView3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //When clicked... Sent to MainActivity.
                 Intent toDetail = new Intent(TeamActivity.this, MainActivity.class);
                 toDetail.putExtra("id", id3);
                 startActivity(toDetail);
@@ -100,7 +100,7 @@ public class TeamActivity extends AppCompatActivity {
 
         mImageView4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //When clicked... Sent to MainActivity.
                 Intent toDetail = new Intent(TeamActivity.this, MainActivity.class);
                 toDetail.putExtra("id", id4);
                 startActivity(toDetail);
@@ -108,12 +108,11 @@ public class TeamActivity extends AppCompatActivity {
         });
 
 
-        if (mSharedPreferences.equals(null)
-                ) {
+        if (mSharedPreferences.equals(null)){ //If data storage is empty, Toast message appears.
             Toast.makeText(TeamActivity.this, "You Need To Add Heroes!", Toast.LENGTH_LONG).show();
         }
 
-        if (id1 >= 0) {
+        if (id1 >= 0) { //Grabs Id, and if it is not the default value, the cursor moves to the row and the data/drawable is set to appropriate view.
             mCursor1.moveToFirst();
             mTextView1.setText(mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
             if (mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")) {
@@ -139,7 +138,7 @@ public class TeamActivity extends AppCompatActivity {
             }
         }
 
-        if (id2 >= 0) {
+        if (id2 >= 0) { //Grabs Id, and if it is not the default value, the cursor moves to the row and the data/drawable is set to appropriate view.
             mCursor2.moveToFirst();
             mTextView2.setText(mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
             if (mCursor2.getString(mCursor2.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")) {
@@ -165,7 +164,7 @@ public class TeamActivity extends AppCompatActivity {
             }
         }
 
-        if (id3 >= 0) {
+        if (id3 >= 0) { //Grabs Id, and if it is not the default value, the cursor moves to the row and the data/drawable is set to appropriate view.
             mCursor3.moveToFirst();
             mTextView3.setText(mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
             if (mCursor3.getString(mCursor3.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")) {
@@ -191,7 +190,7 @@ public class TeamActivity extends AppCompatActivity {
             }
         }
 
-        if (id4 >= 0) {
+        if (id4 >= 0) { //Grabs Id, and if it is not the default value, the cursor moves to the row and the data/drawable is set to appropriate view.
             mCursor4.moveToFirst();
             mTextView4.setText(mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
             if (mCursor4.getString(mCursor4.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")) {

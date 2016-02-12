@@ -8,3 +8,8 @@
 <b>Step 6</b> - (In MainActivity) Click on the button with the 'two person' icon. <b>Expected</b> - Takes User to the Team screen, displaying their favorites list by image and name.
 <b>Step 7</b> - (In TeamActivity) Click on the button labeled 'Back'. <b>Expected</b> - Takes User to the Main screen.
 <b>Step 8</b> - (In DetailActivity) Click on the 'two person' button, or the 'X' button without appropriate data saved. <b>Expected</b> - No data is changed and a Toast 'Error' message appears to the User.
+
+###Screenshots
+[MainActivity Screenshot](http://i.imgur.com/0IkbEJY.png)
+[DetailActivity Screenshot](http://i.imgur.com/LMQ4GJu.png)
+[TeamActivity Screenshot](http://i.imgur.com/CwSgdwr.png)

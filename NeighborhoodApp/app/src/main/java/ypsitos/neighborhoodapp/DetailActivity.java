@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class DetailActivity extends AppCompatActivity {
-    TextView mPowersTv,mAdditionalDetailsTv,mHeroNameTv,mRealNameTv;//Member variables for all views, cursor, and helper.
+    TextView mPowersTv,mAdditionalDetailsTv,mHeroNameTv,mRealNameTv;//Member variables for all views, drawables, cursor, and helper.
     ImageView mImageView;
     Cursor mCursor;
     SQLiteOpenHelper mHelper;
