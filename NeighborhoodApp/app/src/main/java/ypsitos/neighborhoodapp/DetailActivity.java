@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, kickass, thor, antmman ,goku, deathstroke
+public class DetailActivity extends AppCompatActivity {
     TextView mPowersTv,mAdditionalDetailsTv,mHeroNameTv,mRealNameTv;//Member variables for all views, cursor, and helper.
     ImageView mImageView;
     Cursor mCursor;
@@ -25,7 +25,7 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
     protected void onCreate(Bundle savedInstanceState) { //When my activity is created....
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-       mSharedPreferences = this.getSharedPreferences("prefs", MODE_PRIVATE);
+       mSharedPreferences = this.getSharedPreferences("prefs", MODE_PRIVATE); //Gets users team to persist when chosen or removed.
         mEditor = mSharedPreferences.edit();
 
         final int dataId = getIntent().getIntExtra("id",-1); //Gets the intent passed by the searchview and gets the extra passed, with default value -1, assigned to an int dataId.
@@ -39,7 +39,7 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
         mImageView = (ImageView)findViewById(R.id.imageView);
 
 
-        mDeadpoolPic = getResources().getDrawable(R.drawable.deadpool);
+        mDeadpoolPic = getResources().getDrawable(R.drawable.deadpool); //Referencing my resource pictures
         mWolverinePic = getResources().getDrawable(R.drawable.wolverineactual);
         mJokerPic = getResources().getDrawable(R.drawable.joker1);
         mBatmanPic = getResources().getDrawable(R.drawable.batman1);
@@ -51,14 +51,14 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
         mDeathstrokePic = getResources().getDrawable(R.drawable.deathstroke1);
 
 
-        if(dataId>=0){ //If the data passed (id) is greater than or equal to 0...
+        if(dataId>=0){ //If the data passed (id) is greater than or equal to 0 (greater than -1, the default value) - then..
             mCursor = mHelper.searchHeroListById(dataId);
-            mCursor.moveToFirst();
-            mHeroNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)));
+            mCursor.moveToFirst(); //Cursor is set to the id passed, and moves to first in the row.
+            mHeroNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME))); //Sets the appropriate values to the views.
             mRealNameTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_REAL_NAME)));
             mPowersTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_POWERS)));
             mAdditionalDetailsTv.setText(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_ADDITIONAL_DETAIL)));
-            if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")){
+            if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Deadpool")){ //Gets appropriate picture based on grabbed name and sets it to a view.
                 mImageView.setImageDrawable(mDeadpoolPic);
             }else if(mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Wolverine")){
                 mImageView.setImageDrawable(mWolverinePic);
@@ -82,10 +82,10 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
         }
 
 
-        mFavoriteButton = (FloatingActionButton)findViewById(R.id.addFab);
+        mFavoriteButton = (FloatingActionButton)findViewById(R.id.addFab); //Instantiating and setting the floating action button.
         mFavoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //When clicked.. if the id is already stored, send a toast notifying user. If the ids 1-4 are no longer their default value, notify user that all spaces are full. Otherwise, fill appropriate space and add to the stored data.
                 if (mSharedPreferences.getInt("id1", -1) == dataId || mSharedPreferences.getInt("id2", -1) == dataId || mSharedPreferences.getInt("id3", -1) == dataId || mSharedPreferences.getInt("id4", -1) == dataId) {
                     Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is already on your team!", Toast.LENGTH_SHORT).show();
                 }
@@ -123,10 +123,10 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
             }
         });
 
-        mRemoveButton = (FloatingActionButton)findViewById(R.id.removeFab);
+        mRemoveButton = (FloatingActionButton)findViewById(R.id.removeFab); //Instantiating and setting the floating action button.
         mRemoveButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //When clicked.. if the id matches a stored value, remove that value, otherwise, notify the user by toast that the value is not present.
                 if (mSharedPreferences.getInt("id1", -1) == dataId ) {
                     Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " has been removed from your team!", Toast.LENGTH_SHORT).show();
                     mEditor.remove("id1");
