@@ -158,11 +158,11 @@ public class TeamActivity extends AppCompatActivity {
                 mImageView1.setImageDrawable(mBatmanPic);
             } else if (mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Hulk")) {
                 mImageView1.setImageDrawable(mHulkPic);
-            } else if (mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kickass")) {
+            } else if (mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kick-Ass")) {
                 mImageView1.setImageDrawable(mKickassPic);
             } else if (mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Thor")) {
                 mImageView1.setImageDrawable(mThorPic);
-            } else if (mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Antman")) {
+            } else if (mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Ant-Man")) {
                 mImageView1.setImageDrawable(mAntmanPic);
             } else if (mCursor1.getString(mCursor1.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Goku")) {
                 mImageView1.setImageDrawable(mGokuPic);

@@ -17,7 +17,7 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
     Cursor mCursor;
     SQLiteOpenHelper mHelper;
     Drawable mDeadpoolPic,mWolverinePic,mJokerPic,mBatmanPic,mHulkPic,mKickassPic,mThorPic,mAntmanPic,mGokuPic,mDeathstrokePic;
-    FloatingActionButton mFavoriteButton;
+    FloatingActionButton mFavoriteButton,mRemoveButton;
     SharedPreferences mSharedPreferences;
     SharedPreferences.Editor mEditor;
 
@@ -68,11 +68,11 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
                 mImageView.setImageDrawable(mBatmanPic);
             } else if (mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Hulk")) {
                 mImageView.setImageDrawable(mHulkPic);
-            } else if (mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kickass")) {
+            } else if (mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Kick-Ass")) {
                 mImageView.setImageDrawable(mKickassPic);
             } else if (mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Thor")) {
                 mImageView.setImageDrawable(mThorPic);
-            } else if (mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Antman")) {
+            } else if (mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Ant-Man")) {
                 mImageView.setImageDrawable(mAntmanPic);
             } else if (mCursor.getString(mCursor.getColumnIndex(SQLiteOpenHelper.COL_HERO_NAME)).contains("Goku")) {
                 mImageView.setImageDrawable(mGokuPic);
@@ -82,7 +82,7 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
         }
 
 
-        mFavoriteButton = (FloatingActionButton)findViewById(R.id.fab);
+        mFavoriteButton = (FloatingActionButton)findViewById(R.id.addFab);
         mFavoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +114,33 @@ public class DetailActivity extends AppCompatActivity { //joker, batman, hulk, k
 
                     mEditor.putInt("id4", dataId);
                     mEditor.commit();
+
+                }
+            }
+        });
+
+        mRemoveButton = (FloatingActionButton)findViewById(R.id.removeFab);
+        mRemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mSharedPreferences.getInt("id1", -1) == dataId ) {
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " has been removed from your team!", Toast.LENGTH_SHORT).show();
+                    mEditor.remove("id1");
+                    mEditor.commit();
+                }else if(mSharedPreferences.getInt("id2", -1) == dataId){
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " has been removed from your team!", Toast.LENGTH_SHORT).show();
+                    mEditor.remove("id2");
+                    mEditor.commit();
+                }else if(mSharedPreferences.getInt("id3", -1) == dataId){
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " has been removed from your team!", Toast.LENGTH_SHORT).show();
+                    mEditor.remove("id3");
+                    mEditor.commit();
+                }else if(mSharedPreferences.getInt("id4", -1) == dataId){
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " has been removed from your team!", Toast.LENGTH_SHORT).show();
+                    mEditor.remove("id4");
+                    mEditor.commit();
+                }else{
+                    Toast.makeText(DetailActivity.this, mHeroNameTv.getText().toString() + " is not in your team yet!", Toast.LENGTH_LONG).show();
 
                 }
             }
