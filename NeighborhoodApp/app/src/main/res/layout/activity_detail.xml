@@ -141,7 +141,7 @@
         android:id="@+id/textView3"
         android:textColor="#999999"
         android:paddingRight="5dp"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="83dp"
         android:layout_below="@+id/textView2"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2" />
